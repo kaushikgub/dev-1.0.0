@@ -3,7 +3,7 @@
     <div class="container-fluid app-body app-home">
         <div class="row">
             <div class="col-sm-4">
-                <input type="text" class="form-control change" placeholder="Search" id="search">
+                <input type="text" class="form-control change" placeholder="Post Text" id="search">
             </div>
             <div class="col-sm-4">
                 <select name="date" class="form-control change"  id="date">
@@ -73,6 +73,7 @@
                         $('#t_body').append(element);
                     });
                     for( let j = 1; j< 10; j++ ){
+                        // because there is lot of page, for this, i took 10 as init...
                         let newUrl = url.split('=')[0]+'?page='+j;
                         let paginate = '<li class="page-item"><a class="page-link" data-id = "'+newUrl+'">'+ j +'</a></li>';
                         $('.pagination').append(paginate);

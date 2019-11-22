@@ -2,7 +2,7 @@
     <div class="container-fluid app-body app-home">
         <div class="row">
             <div class="col-sm-4">
-                <input type="text" class="form-control change" placeholder="Search" id="search">
+                <input type="text" class="form-control change" placeholder="Post Text" id="search">
             </div>
             <div class="col-sm-4">
                 <select name="date" class="form-control change"  id="date">
