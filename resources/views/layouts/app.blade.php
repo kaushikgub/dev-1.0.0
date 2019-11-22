@@ -11,10 +11,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-    <link rel=”stylesheet” href=” https:
-    //cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+    <link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
     <script src=”https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
+
+    <script src="//fast.appcues.com/widget-bundle.js" type="text/javascript"></script>
+
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <script type="text/javascript">
         window.Laravel = {!! json_encode([
@@ -329,10 +332,6 @@ if($user_meta['temp_user'] === true){
     </nav>
     @yield('content')
 </div>
-
-<script src="//fast.appcues.com/widget-bundle.js" type="text/javascript"></script>
-
-<script src="{{ asset('js/app.js') }}"></script>
 <script>
 
     var hash = window.location.hash;

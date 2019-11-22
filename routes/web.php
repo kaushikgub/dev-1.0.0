@@ -69,6 +69,7 @@ Route::get('/group-test/{id}', function(Request $request, $id){
 ///////////////kaushik/////////////////////
 
 Route::get('history', 'HistoryController@index');
+Route::get('/get/data/{search}/{time}/{group}', 'HistoryController@getData');
 
 
 

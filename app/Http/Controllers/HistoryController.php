@@ -9,9 +9,24 @@ use Illuminate\Http\Request;
 class HistoryController extends Controller
 {
     public function index(){
-        $buffers = BufferPosting::with('user')->with('group')->with('post')->paginate(10);
+//        $buffers = BufferPosting::with('user')->with('group')->with('post')->paginate(10);
+        $buffers = BufferPosting::get();
         $group = Group::all();
+        $buffers_date = BufferPosting::all();
 //        return $buffers;
-        return view('history.index', compact('buffers', 'group'));
+        return view('history.index', compact('buffers', 'group', 'buffers_date'));
+    }
+
+    public function getData($search, $time, $group){
+        if ($search == 'null' && $time == 'null' && $group == 'null'){
+            $buffers = BufferPosting::with('user')->with('group')->with('post')->paginate(10);
+        } else {
+            $buffers = BufferPosting::where('post_text', 'like', '%'.$search.'%')
+                ->orWhere('created_at', $time)
+                ->orWhere('group_id','=', $group)
+                ->with('user')->with('group')
+                ->with('post')->paginate(10);
+        }
+        return response()->json($buffers);
     }
 }
