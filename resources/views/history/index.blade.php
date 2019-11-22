@@ -7,6 +7,7 @@
             </div>
             <div class="col-sm-4">
                 <select name="date" class="form-control change"  id="date">
+                    <option value="null">Select</option>
                     @foreach($buffers as $buffer)
                         <option value="{{ $buffer->created_at }}">{{ $buffer->created_at }}</option>
                     @endforeach
@@ -14,6 +15,7 @@
             </div>
             <div class="col-sm-4">
                 <select name="group" class="form-control change" id="group" >
+                    <option value="null">Select</option>
                     @foreach($group as $g)
                         <option value="{{ $g->id }}">{{ $g->name }}</option>
                     @endforeach
@@ -70,13 +72,10 @@
                         let element = '<tr><td>'+ value.group.name +'</td><td>'+ value.group.type +'</td><td>'+ value.user.name +'</td><td>'+ value.post.text +'</td><td>'+ value.created_at +'</td></tr>';
                         $('#t_body').append(element);
                     });
-                    if (result.total > 9){
-                        for( let j = 1; j< 10; j++ ){
-                            let newUrl = url.split('=')[0]+'?page='+j;
-                            console.log(newUrl);
-                            let paginate = '<li class="page-item"><a class="page-link" data-id = "'+newUrl+'">'+ j +'</a></li>';
-                            $('.pagination').append(paginate);
-                        }
+                    for( let j = 1; j< 10; j++ ){
+                        let newUrl = url.split('=')[0]+'?page='+j;
+                        let paginate = '<li class="page-item"><a class="page-link" data-id = "'+newUrl+'">'+ j +'</a></li>';
+                        $('.pagination').append(paginate);
                     }
 
                 },
